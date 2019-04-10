@@ -54,7 +54,7 @@ provider "openstack" {
 }
 
 resource "openstack_compute_instance_v2" "vm_1" {	
-  name      = "${ length(var.instance_name) > 0 ? var.instance_name : format("terraform-single-vm-${random_id.random_padding.hex}-%02d", count.index+1)}"
+  name      = "${var.instance_name}"
   image_id  = "${var.openstack_image_id}"
   flavor_id = "${var.openstack_flavor_id}"
   key_pair  = "${var.key_pair_name}"
