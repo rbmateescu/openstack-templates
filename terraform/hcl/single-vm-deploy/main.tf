@@ -50,10 +50,10 @@ resource "random_id" "random_padding" {
 
 provider "openstack" {
   insecure = true
-  version  = "~> 0.3"
+  version  = "~> 1.17"
 }
 
-resource "openstack_compute_instance_v2" "single-vm" {	
+resource "openstack_compute_instance_v2" "vm1" {	
   name      = "${ length(var.instance_name) > 0 ? var.instance_name : format("terraform-single-vm-${random_id.random_padding.hex}-%02d", count.index+1)}"
   image_id  = "${var.openstack_image_id}"
   flavor_id = "${var.openstack_flavor_id}"
