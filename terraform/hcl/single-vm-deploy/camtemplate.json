@@ -4,7 +4,7 @@
    "version": "1.0",
    "imageUrl": "./assets/svg/IBM_WebSphere_Standalone.svg",
    "image": "tp_WAS_standalone.png",
-   "type": "integration",
+   "type": "import",
    "status": "active",
    "manifest": {
      "template_type": "Terraform",
@@ -18,7 +18,7 @@
      "template_source": {
      "githubRepoUrl": "",
      "githubAccessToken": "",
-     "relativePathToTemplateFolder": "OpenStack/terraform/hcl/single-vm-deploy",
+     "relativePathToTemplateFolder": "terraform/hcl/single-vm-deploy",
      "templateFileName": "main.tf"
       }
    },
