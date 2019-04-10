@@ -64,6 +64,6 @@ resource "openstack_compute_instance_v2" "single-vm" {
   }
 }
 
-output "single-vm-ip" {
-  value = "${element(openstack_compute_instance_v2.single-vm.*.network.0.fixed_ip_v4,0)}"
-}
+#output "single-vm-ip" {
+#  value = "${element(openstack_compute_instance_v2.single-vm.*.network.0.fixed_ip_v4,0)}"
+#}
