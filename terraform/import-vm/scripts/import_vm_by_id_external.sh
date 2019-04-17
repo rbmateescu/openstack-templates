@@ -19,7 +19,7 @@ PARAM_ID_FROM_PROVIDER=\(.id_from_provider)"')"
 #eval "$(jq -r '@sh "PARAM_TEMPLATE_NAME=\(.template_id)"')"
 #eval "$(jq -r '@sh "PARAM_ID_FROM_PROVIDER=\(.id_from_provider)"')"
 
-printf "\033[33m [PARAM_CAM_IP: $PARAM_CAM_IP]\n\033[0m\n"
+#printf "\033[33m [PARAM_CAM_IP: $PARAM_CAM_IP]\n\033[0m\n"
 #printf "\033[33m [PARAM_AUTH_USER: $PARAM_AUTH_USER]\n\033[0m\n"
 #printf "\033[33m [PARAM_INSTANCE_NAME: $PARAM_INSTANCE_NAME]\n\033[0m\n"
 #printf "\033[33m [PARAM_INSTANCE_NAMESPACE: $PARAM_INSTANCE_NAMESPACE]\n\033[0m\n"
