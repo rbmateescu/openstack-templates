@@ -23,25 +23,6 @@
             "hidden": "false"
         },
         {
-            "name": "cam_instancename",
-            "type": "password",
-            "description": "Name of the CAM instance that will be created after the import",
-            "label": "CAM Instance Name",
-            "required": "true",
-            "secured": "false"
-        },
-        {
-            "name": "cam_namespace",
-            "type": "string",
-            "description": "CAM namespace into which the imported instance will be created",
-            "label": "CAM namespace",
-            "required": "true",
-            "secured": "false",
-            "immutable": "false",
-            "hidden": "false",
-            "default": "default"
-        },
-        {
             "name": "cam_cloudconnection_id",
             "type": "string",
             "description": "CAM ID of the cloud connection used to connect to the cloud where the instance is going to be imported from",
@@ -56,14 +37,6 @@
             "type": "string",
             "description": "CAM ID of the import template used as a base for terraform import",
             "label": "CAM IMport Template ID",
-            "required": "true",
-            "secured": "false"
-        },
-        {
-            "name": "cloud_instance_id",
-            "type": "string",
-            "description": "Cloud native ID of the instance to be imprted. e.g. 338aefb7-6987-4c43-88d5-09351b549b7f",
-            "label": "Cloud Native Instance ID",
             "required": "true",
             "secured": "false"
         }

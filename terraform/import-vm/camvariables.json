@@ -34,8 +34,7 @@
       "description": "Name of the CAM instance that will be created after the import",
       "label": "CAM Instance Name",
       "required": "true",
-      "secured": "false",
-      "default": "${cam_import_by_id.cam_instancename}"
+      "secured": "false"
     },
     {
       "name": "cam_namespace",
@@ -46,7 +45,7 @@
       "secured": "false",
       "immutable": "false",
       "hidden": "false",
-      "default": "${cam_import_by_id.cam_namespace}"
+      "default": "default"
     },
     {
       "name": "cam_cloudconnection_id",
@@ -74,8 +73,7 @@
       "description": "Cloud native ID of the instance to be imprted. e.g. 338aefb7-6987-4c43-88d5-09351b549b7f",
       "label": "Cloud Native Instance ID",
       "required": "true",
-      "secured": "false",
-      "default": "${cam_import_by_id.cloud_instance_id}"
+      "secured": "false"
     }
   ],
   "template_output_params": [
