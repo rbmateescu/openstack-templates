@@ -1,6 +1,10 @@
 {
-  "input_datatypes": ["cam_import_by_id"],
-  "output_datatype": "",
+  "input_datatypes": [
+    {
+      "name": "cam_import_by_id",
+      "label": "CAM VM import by ID"
+    }
+  ],
   "input_groups": [
     {
       "name": "cloud",
