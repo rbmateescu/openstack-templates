@@ -34,7 +34,7 @@
     },
     {
       "name": "cam_instancename",
-      "type": "password",
+      "type": "string",
       "description": "Name of the CAM instance that will be created after the import",
       "label": "CAM Instance Name",
       "required": "true",
