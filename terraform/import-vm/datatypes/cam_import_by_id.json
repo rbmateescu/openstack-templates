@@ -4,7 +4,7 @@
     "description": "Data structure describing the attributes required by VM import by ID API in Cloud Automation Manager",
     "attributes": [
         {
-            "name": "cam_name",
+            "name": "cam_username",
             "type": "string",
             "description": "CAM user name",
             "label": "CAM username",

@@ -9,7 +9,7 @@
   ],
   "template_input_params": [
     {
-      "name": "cam_name",
+      "name": "cam_username",
       "type": "string",
       "description": "CAM user name",
       "label": "CAM username",
