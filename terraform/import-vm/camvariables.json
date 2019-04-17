@@ -66,7 +66,7 @@
       "name": "cam_template_id",
       "type": "string",
       "description": "CAM ID of the import template used as a base for terraform import",
-      "label": "CAM IMport Template ID",
+      "label": "CAM Import Template ID",
       "required": "true",
       "secured": "false",
       "default": "${cam_import_by_id.cam_template_id}"
