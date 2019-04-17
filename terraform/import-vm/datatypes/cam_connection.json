@@ -4,7 +4,7 @@
     "description": "Data structure describing the attributes required to run a REST API against Cloud Automation Manager",
     "attributes": [
         {
-            "name": "cam_host",
+            "name": "cam_hostname",
             "type": "string",
             "description": "CAM Host Name or IP",
             "label": "CAM Host Name or IP",
