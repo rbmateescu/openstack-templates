@@ -3,7 +3,7 @@
 set -x
 
 # Get script parameters
-eval "$(jq -r '@sh "PARAM_CAM_IP=\(.host) PARAM_AUTH_USER=\(.user) PARAM_AUTH_PASSWORD=\(.password) PARAM_INSTANCE_NAME=\(."instance-name") PARAM_INSTANCE_NAMESPACE=\(."instance-namespace") PARAM_CC_NAME=\(."cloud-connection-id") PARAM_TEMPLATE_NAME=\(."template-id") PARAM_ID_FROM_PROVIDER=\(."id-from-provider")"')"
+eval "$(jq -r '@sh "PARAM_CAM_IP=\(.host) PARAM_AUTH_USER=\(.user) PARAM_AUTH_PASSWORD=\(.password) PARAM_INSTANCE_NAME=\(.[\"instance-name\"]) PARAM_INSTANCE_NAMESPACE=\(.[\"instance-namespace\"]) PARAM_CC_NAME=\(.[\"cloud-connection-id\"]) PARAM_TEMPLATE_NAME=\(.[\"template-id\"]) PARAM_ID_FROM_PROVIDER=\(.[\"id-from-provider\"])"')"
 
 printf "\033[33m [PARAM_CAM_IP: $PARAM_CAM_IP]\n\033[0m\n"
 printf "\033[33m [PARAM_AUTH_USER: $PARAM_AUTH_USER]\n\033[0m\n"
