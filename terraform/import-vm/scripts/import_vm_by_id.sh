@@ -75,12 +75,12 @@ function run_cam_import() {
     -H 'Content-Type: application/json' \
     -H 'Authorization: bearer '$CAM_TOKEN | jq --raw-output '.status'`
     printf "\033[33m [CAM Instance status: $CAM_INSTANCE_STATUS]\n\033[0m\n\033[0m\n"
-    if [ "$CAM_INSTANCE_STATUS" != "SUCCESS" ]
+    if [ "$CAM_INSTANCE_STATUS" == "SUCCESS" ]
     then
       exit_code=0
       break
     else
-      echo "Sleeping 2 sec while waiting for apt-get update to finish ...";
+      echo "Sleeping 5 sec while waiting for apt-get update to finish ...";
       sleep 5
     fi
     attempts=$[$attempts+1]
