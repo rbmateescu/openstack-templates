@@ -1,8 +1,12 @@
 {
   "input_datatypes": [
     {
-      "name": "cam_import_by_id",
-      "label": "CAM VM import by ID"
+      "name": "cam_connection",
+      "label": "CAM Connection"
+    },
+    {
+      "name": "cam_import",
+      "label": "CAM Import Cloud Resources"
     }
   ],
   "input_groups": [
@@ -19,7 +23,7 @@
       "label": "CAM host name or IP",
       "required": true,
       "secured": false,
-      "default": "${cam_import_by_id.cam_hostname}"
+      "default": "${cam_connection.cam_hostname}"
     },
 
     {
@@ -29,7 +33,7 @@
       "label": "CAM username",
       "required": true,
       "secured": false,
-      "default": "${cam_import_by_id.cam_username}"
+      "default": "${cam_connection.cam_username}"
     },
     {
       "name": "cam_password",
@@ -38,7 +42,7 @@
       "label": "CAM password",
       "required": true,
       "secured": true,
-      "default": "${cam_import_by_id.cam_password}"
+      "default": "${cam_connection.cam_password}"
     },
     {
       "name": "cam_cloudconnection_id",
@@ -48,7 +52,7 @@
       "required": true,
       "secured": false,
       "immutable": false,
-      "default": "${cam_import_by_id.cam_cloudconnection_id}"
+      "default": "${cam_import.cam_cloudconnection_id}"
     },
     {
       "name": "cam_template_id",
@@ -57,7 +61,7 @@
       "label": "CAM Import Template ID",
       "required": true,
       "secured": false,
-      "default": "${cam_import_by_id.cam_template_id}"
+      "default": "${cam_import.cam_template_id}"
     },
     {
       "name": "cam_instancename",
