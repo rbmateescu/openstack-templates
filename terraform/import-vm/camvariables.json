@@ -16,7 +16,7 @@
       "required": "true",
       "secured": "false",
       "hidden": "false",
-      "default": "${cam_import_by_id.cam_name}"
+      "default": "${cam_import_by_id.cam_username}"
     },
     {
       "name": "cam_password",
