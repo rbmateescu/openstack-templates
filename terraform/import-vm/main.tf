@@ -18,10 +18,10 @@ data "external" "import" {
     host  = "${var.cam_hostname}"
     user  = "${var.cam_username}"
     password = "${var.cam_password}"
-    instance-name = "${var.cam_instancename}"
-    instance-namespace = "${var.cam_namespace}"
-    cloud-connection-id = "${var.cam_cloudconnection_id}"
-    template-id = "${var.cam_template_id}"
-    id-from-provider = "${var.cloud_instance_id}"
+    instance_name = "${var.cam_instancename}"
+    instance_namespace = "${var.cam_namespace}"
+    cloud_connection_id = "${var.cam_cloudconnection_id}"
+    template_id = "${var.cam_template_id}"
+    id_from_provider = "${var.cloud_instance_id}"
   }
 }

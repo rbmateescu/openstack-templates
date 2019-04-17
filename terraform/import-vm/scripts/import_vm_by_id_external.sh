@@ -4,13 +4,13 @@ set -x
 
 # Get script parameters
 eval "$(jq -r '@sh "PARAM_CAM_IP=\(.host)"')"
-#eval "$(jq -r '@sh "PARAM_AUTH_USER=\(.user)"')"
-#eval "$(jq -r '@sh "PARAM_AUTH_PASSWORD=\(.password)"')"
-#eval "$(jq -r '@sh "PARAM_INSTANCE_NAME=\(.[\"instance-name\"])"')"
-#eval "$(jq -r '@sh "PARAM_INSTANCE_NAMESPACE=\(.[\"instance-namespace\"])"')"
-#eval "$(jq -r '@sh "PARAM_CC_NAME=\(.[\"cloud-connection-id\"])"')"
-#eval "$(jq -r '@sh "PARAM_TEMPLATE_NAME=\(.[\"template-id\"])"')"
-#eval "$(jq -r '@sh "PARAM_ID_FROM_PROVIDER=\(.[\"id-from-provider\"])"')"
+eval "$(jq -r '@sh "PARAM_AUTH_USER=\(.user)"')"
+eval "$(jq -r '@sh "PARAM_AUTH_PASSWORD=\(.password)"')"
+eval "$(jq -r '@sh "PARAM_INSTANCE_NAME=\(.instance_name)"')"
+eval "$(jq -r '@sh "PARAM_INSTANCE_NAMESPACE=\(.instance_namespace)"')"
+eval "$(jq -r '@sh "PARAM_CC_NAME=\(.cloud_connection_id)"')"
+eval "$(jq -r '@sh "PARAM_TEMPLATE_NAME=\(.template_id)"')"
+eval "$(jq -r '@sh "PARAM_ID_FROM_PROVIDER=\(.id_from_provider)"')"
 
 printf "\033[33m [PARAM_CAM_IP: $PARAM_CAM_IP]\n\033[0m\n"
 printf "\033[33m [PARAM_AUTH_USER: $PARAM_AUTH_USER]\n\033[0m\n"
