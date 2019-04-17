@@ -17,8 +17,8 @@
       "type": "string",
       "description": "CAM user name",
       "label": "CAM username",
-      "required": "true",
-      "secured": "false",
+      "required": true,
+      "secured": false,
       "default": "${cam_import_by_id.cam_username}"
     },
     {
@@ -26,8 +26,8 @@
       "type": "string",
       "description": "CAM password",
       "label": "CAM password",
-      "required": "true",
-      "secured": "true",
+      "required": true,
+      "secured": true,
       "default": "${cam_import_by_id.cam_password}"
     },
     {
@@ -35,9 +35,9 @@
       "type": "string",
       "description": "CAM ID of the cloud connection used to connect to the cloud where the instance is going to be imported from",
       "label": "CAM Cloud Connection ID",
-      "required": "true",
-      "secured": "false",
-      "immutable": "false",
+      "required": true,
+      "secured": false,
+      "immutable": false,
       "default": "${cam_import_by_id.cam_cloudconnection_id}"
     },
     {
@@ -45,8 +45,8 @@
       "type": "string",
       "description": "CAM ID of the import template used as a base for terraform import",
       "label": "CAM Import Template ID",
-      "required": "true",
-      "secured": "false",
+      "required": true,
+      "secured": false,
       "default": "${cam_import_by_id.cam_template_id}"
     },
     {
@@ -54,16 +54,16 @@
       "type": "string",
       "description": "Name of the CAM instance that will be created after the import",
       "label": "CAM Instance Name",
-      "required": "true",
-      "secured": "false"
+      "required": true,
+      "secured": false
     },
     {
       "name": "cam_namespace",
       "type": "string",
       "description": "CAM namespace into which the imported instance will be created",
       "label": "CAM namespace",
-      "required": "true",
-      "secured": "false",
+      "required": true,
+      "secured": false,
       "default": "default"
     },
     {
@@ -71,8 +71,8 @@
       "type": "string",
       "description": "Cloud native ID of the instance to be imprted. e.g. 338aefb7-6987-4c43-88d5-09351b549b7f",
       "label": "Cloud Native Instance ID",
-      "required": "true",
-      "secured": "false"
+      "required": true,
+      "secured": false
     }
   ],
   "template_output_params": [
