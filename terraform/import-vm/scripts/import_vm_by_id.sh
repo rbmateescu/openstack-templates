@@ -70,7 +70,7 @@ function run_cam_import() {
   CAM_INSTANCE_STATUS=""
   until [ $attempts -ge 5 ]
   do
-    CAM_INSTANCE_STATUS = `curl -k -X POST \
+    CAM_INSTANCE_STATUS=`curl -k -X POST \
     'https://'$PARAM_CAM_IP':30000/cam/api/v1/stacks/'$CAM_INSTANCE_ID'/retrieve?tenantId='$CAM_TENANT_ID'&cloudOE_spaceGuid='$PARAM_INSTANCE_NAMESPACE \
     -H 'Content-Type: application/json' \
     -H 'Authorization: bearer '$CAM_TOKEN | jq --raw-output '.status'`
