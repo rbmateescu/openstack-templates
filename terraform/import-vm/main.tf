@@ -7,6 +7,6 @@ resource "null_resource" "ImportVM" {
 resource "camc_scriptpackage" "FetchIPV4" {
   depends_on = ["null_resource.ImportVM"]
   
-  program = ["ipv4=$(cat ./ipv4)"]
+  program = ["cat ./ipv4"]
   on_create = true
 }

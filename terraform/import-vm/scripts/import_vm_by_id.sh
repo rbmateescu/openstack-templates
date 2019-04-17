@@ -80,7 +80,7 @@ function run_cam_import() {
       exit_code=0
       break
     else
-      echo "Sleeping 5 sec while waiting for apt-get update to finish ...";
+      echo "Sleeping 5 sec while waiting for the import to finish ...";
       sleep 5
     fi
     attempts=$[$attempts+1]
