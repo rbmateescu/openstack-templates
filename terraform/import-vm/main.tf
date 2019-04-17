@@ -4,9 +4,9 @@ resource "null_resource" "ImportVM" {
   }
 }
 
-resource "camc_scriptpackage" "FetchIPV4" {
-  depends_on = ["null_resource.ImportVM"]
+#resource "camc_scriptpackage" "FetchIPV4" {
+#  depends_on = ["null_resource.ImportVM"]
   
-  program = ["svrInfo=$(cat ./ipv4);", "if [ -z $svrInfo ]; then echo '{}'; else echo $svrInfo; fi"]
-  on_create = true
-}
+#  program = ["svrInfo=$(cat ./ipv4);", "if [ -z $svrInfo ]; then echo '{}'; else echo $svrInfo; fi"]
+#  on_create = true
+#}
