@@ -92,9 +92,8 @@ function run_cam_import() {
     -H 'Content-Type: application/json' \
     -H 'Authorization: bearer '$CAM_TOKEN | jq --raw-output '.data.details.resources[0].details.access_ip_v4'` 
     #printf "\033[33m [Imported VM IPV4: $IMPORTED_VM_IPV4]\n\033[0m\n\033[0m\n"
-  else
+  #else
       #echo "Failed to import instance "$CAM_INSTANCE_ID ". Instance status is "$CAM_INSTANCE_STATUS
-      
   fi
 }
 run_cam_import
