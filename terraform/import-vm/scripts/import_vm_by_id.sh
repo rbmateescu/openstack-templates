@@ -50,8 +50,9 @@ printf "\033[33m [CAM tenant ID : $CAM_TENANT_ID]\n\033[0m\n"
 function run_cam_import() {
    get_cam_tenant
    printf "\033[33m [Running the import VM command]\n\033[0m\n\033[0m\n"
-
-   curl -k -X POST \
+  
+  # call the import REST API
+   CAM_INSTANCE_ID=`curl -k -X POST \
    'https://'$PARAM_CAM_IP':30000/cam/api/v1/stacks/import?tenantId='$CAM_TENANT_ID'&cloudOE_spaceGuid='$PARAM_INSTANCE_NAMESPACE \
   -H 'Content-Type: application/json' \
   -H 'Authorization: bearer '$CAM_TOKEN \
@@ -60,7 +61,36 @@ function run_cam_import() {
   "cloudConnectionId": "'$PARAM_CC_NAME'",
   "templateId": "'$PARAM_TEMPLATE_NAME'",
   "idFromProvider": "'$PARAM_ID_FROM_PROVIDER'"
-}'
+}' | jq --raw-output '.id'`
+
+ # wait for the import job to 
+
+  attempts=0
+  exit_code=-1
+  CAM_INSTANCE_STATUS=""
+  until [ $attempts -ge 5 ]
+  do
+    CAM_INSTANCE_STATUS = `curl -k -X POST \
+    'https://'$PARAM_CAM_IP':30000/cam/api/v1/stacks/'$CAM_INSTANCE_ID'/retrieve?tenantId='$CAM_TENANT_ID'&cloudOE_spaceGuid='$PARAM_INSTANCE_NAMESPACE \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: bearer '$CAM_TOKEN | jq --raw-output '.status'`
+    printf "\033[33m [CAM Instance status: $CAM_INSTANCE_STATUS]\n\033[0m\n\033[0m\n"
+    if [ "$CAM_INSTANCE_STATUS" != "SUCCESS" ]
+    then
+      exit_code=0
+      break
+    else
+      echo "Sleeping 2 sec while waiting for apt-get update to finish ...";
+      sleep 5
+    fi
+    attempts=$[$attempts+1]
+  done
+  if [ $exit_code -eq 0 ]; then
+      echo "Successfully imported instance "$CAM_INSTANCE_ID
+  else
+      echo "Failed to import instance "$CAM_INSTANCE_ID ". Instance status is "$CAM_INSTANCE_STATUS
+      exit -1
+  fi
 }
 
 run_cam_import
