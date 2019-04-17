@@ -67,7 +67,6 @@
       "label": "CAM namespace",
       "required": "true",
       "secured": "false",
-      "hidden": "false",
       "default": "default"
     },
     {

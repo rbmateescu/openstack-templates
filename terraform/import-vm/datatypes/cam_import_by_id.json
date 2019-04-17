@@ -10,7 +10,6 @@
             "label": "CAM username",
             "required": "true",
             "secured": "false",
-            "hidden": "false",
             "default": "admin"
         },
         {
@@ -19,8 +18,7 @@
             "description": "CAM password",
             "label": "CAM password",
             "required": "true",
-            "secured": "true",
-            "hidden": "false"
+            "secured": "true"
         },
         {
             "name": "cam_cloudconnection_id",
@@ -29,7 +27,6 @@
             "label": "CAM Cloud Connection ID",
             "required": "true",
             "secured": "false",
-            "immutable": "false",
             "hidden": "false"
         },
         {
