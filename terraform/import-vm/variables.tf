@@ -1,3 +1,6 @@
+variable "cam_hostname" {
+  description = "CAM hostname or IP"
+}
 variable "cam_username" {
   description = "CAM username"
 }
