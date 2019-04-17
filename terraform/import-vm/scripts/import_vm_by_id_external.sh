@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+#set -x
 # Get script parameters
 eval "$(jq -r '@sh "PARAM_CAM_IP=\(.host_name) 
 PARAM_AUTH_USER=\(.user_name) 
