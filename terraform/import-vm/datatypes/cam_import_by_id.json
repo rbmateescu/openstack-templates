@@ -1,6 +1,6 @@
 {
     "name": "cam_import_by_id",
-    "label": "Virtual Machine import by ID",
+    "label": "CAM VM import by ID",
     "description": "Data structure describing the attributes required by VM import by ID API in Cloud Automation Manager",
     "attributes": [
         {
