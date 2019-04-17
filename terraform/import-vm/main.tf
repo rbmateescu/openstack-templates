@@ -15,8 +15,8 @@
 data "external" "import" {
   program = ["/bin/bash", "${path.module}/scripts/import_vm_by_id_external.sh"]
   query = {
-    host  = "${var.cam_hostname}"
-    user  = "${var.cam_username}"
+    host_name  = "${var.cam_hostname}"
+    user_name  = "${var.cam_username}"
     password = "${var.cam_password}"
     instance_name = "${var.cam_instancename}"
     instance_namespace = "${var.cam_namespace}"
