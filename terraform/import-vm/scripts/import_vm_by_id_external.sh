@@ -29,7 +29,7 @@ printf "\033[33m [PARAM_TEMPLATE_NAME: $PARAM_TEMPLATE_NAME]\n\033[0m\n"
 printf "\033[33m [PARAM_ID_FROM_PROVIDER: $PARAM_ID_FROM_PROVIDER]\n\033[0m\n"
 
 CAM_TOKEN=""
-
+IMPORTED_VM_IPV4="0.0.0.0"
 function get_cam_bearer_token() {
   printf "\033[33m [Retrieving bearer token for user $PARAM_AUTH_USER]\n\033[0m\n"
 CAM_TOKEN=`curl -k -X POST \
@@ -100,12 +100,13 @@ function run_cam_import() {
     -H 'Content-Type: application/json' \
     -H 'Authorization: bearer '$CAM_TOKEN | jq --raw-output '.data.details.resources[0].details.access_ip_v4'` 
     printf "\033[33m [Imported VM IPV4: $IMPORTED_VM_IPV4]\n\033[0m\n\033[0m\n"
+    jq -n '{"ipv4":"2.2.2.2"}'
     #echo $IMPORTED_VM_IPV4 > ./ipv4
-    jq -n --arg ipv4 "$IMPORTED_VM_IPV4" '{"ipv4":$ipv4}'
   else
       echo "Failed to import instance "$CAM_INSTANCE_ID ". Instance status is "$CAM_INSTANCE_STATUS
-      exit -1
+      jq -n '{"ipv4":"3.3.3.3"}'
   fi
 }
 
 run_cam_import
+#jq -n --arg ipv4 "$IMPORTED_VM_IPV4" '{"ipv4":$ipv4}'
