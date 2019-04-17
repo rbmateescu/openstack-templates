@@ -107,10 +107,10 @@
   ],
   "template_output_params": [
     {
-      "name": "cam_instance_url",
-      "label": "CAM Imported Instance URL",
-      "description": "CAM Imported Instance URL",
-      "type": "url",
+      "name": "imported_vm_ipv4",
+      "label": "VM IPV4",
+      "description": "IPV4 of the imported virtual machine",
+      "type": "string",
       "secured": false
     }
   ]
