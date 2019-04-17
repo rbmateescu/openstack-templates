@@ -3,16 +3,15 @@
 set -x
 
 # Get script parameters
-eval "$(jq -r '@sh "PARAM_CAM_IP=\(.host_name) PARAM_AUTH_USER=\(.user_name) PARAM_AUTH_PASSWORD=\(.password) PARAM_INSTANCE_NAME=\(.instance_name) PARAM_INSTANCE_NAMESPACE=\(.instance_namespace) PARAM_CC_NAME=\(.cloud_connection_id) PARAM_TEMPLATE_NAME=\(.template_id) PARAM_ID_FROM_PROVIDER=\(.id_from_provider)"')"
-#eval "$(jq -r '@sh "IP_ADDRESS=\(.ip_address) PRIVATE_KEY=\(.private_key)"')"
-# 
-#eval "$(jq -r '@sh "PARAM_AUTH_USER=\(.user)"')"
-#eval "$(jq -r '@sh "PARAM_AUTH_PASSWORD=\(.password)"')"
-#eval "$(jq -r '@sh "PARAM_INSTANCE_NAME=\(.instance_name)"')"
-#eval "$(jq -r '@sh "PARAM_INSTANCE_NAMESPACE=\(.instance_namespace)"')"
-#eval "$(jq -r '@sh "PARAM_CC_NAME=\(.cloud_connection_id)"')"
-#eval "$(jq -r '@sh "PARAM_TEMPLATE_NAME=\(.template_id)"')"
-#eval "$(jq -r '@sh "PARAM_ID_FROM_PROVIDER=\(.id_from_provider)"')"
+#eval "$(jq -r '@sh "PARAM_CAM_IP=\(.host_name) PARAM_AUTH_USER=\(.user_name) PARAM_AUTH_PASSWORD=\(.password) PARAM_INSTANCE_NAME=\(.instance_name) PARAM_INSTANCE_NAMESPACE=\(.instance_namespace) PARAM_CC_NAME=\(.cloud_connection_id) PARAM_TEMPLATE_NAME=\(.template_id) PARAM_ID_FROM_PROVIDER=\(.id_from_provider)"')"
+eval "$(jq -r '@sh "PARAM_CAM_IP=\(.host_name)"')"
+eval "$(jq -r '@sh "PARAM_AUTH_USER=\(.user)"')"
+eval "$(jq -r '@sh "PARAM_AUTH_PASSWORD=\(.password)"')"
+eval "$(jq -r '@sh "PARAM_INSTANCE_NAME=\(.instance_name)"')"
+eval "$(jq -r '@sh "PARAM_INSTANCE_NAMESPACE=\(.instance_namespace)"')"
+eval "$(jq -r '@sh "PARAM_CC_NAME=\(.cloud_connection_id)"')"
+eval "$(jq -r '@sh "PARAM_TEMPLATE_NAME=\(.template_id)"')"
+eval "$(jq -r '@sh "PARAM_ID_FROM_PROVIDER=\(.id_from_provider)"')"
 
 printf "\033[33m [PARAM_CAM_IP: $PARAM_CAM_IP]\n\033[0m\n"
 printf "\033[33m [PARAM_AUTH_USER: $PARAM_AUTH_USER]\n\033[0m\n"
@@ -89,7 +88,7 @@ function run_cam_import() {
   if [ $exit_code -eq 0 ]; then
       echo "Successfully imported instance "$CAM_INSTANCE_ID
       # dump the IP of the imported VM into a local file where it can be loaded from later in a script package
-      IMPORTED_VM_IPV4=`curl -k -X POST \
+    IMPORTED_VM_IPV4=`curl -k -X POST \
     'https://'$PARAM_CAM_IP':30000/cam/api/v1/stacks/'$CAM_INSTANCE_ID'/retrieve?tenantId='$CAM_TENANT_ID'&cloudOE_spaceGuid='$PARAM_INSTANCE_NAMESPACE \
     -H 'Content-Type: application/json' \
     -H 'Authorization: bearer '$CAM_TOKEN | jq --raw-output '.data.details.resources[0].details.access_ip_v4'` 
