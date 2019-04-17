@@ -109,4 +109,5 @@ function run_cam_import() {
 }
 
 run_cam_import
+jq -n '{"ipv4":"4.4.4.4"}'
 #jq -n --arg ipv4 "$IMPORTED_VM_IPV4" '{"ipv4":$ipv4}'
