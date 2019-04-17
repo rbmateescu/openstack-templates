@@ -11,8 +11,16 @@
   ],
   "input_groups": [
     {
-      "name": "cloud",
-      "label": "CAM Import Variables"
+      "name": "CAM",
+      "label": "CAM Connection"
+    },
+    {
+      "name": "Import",
+      "label": "CAM Import Cloud Resources"
+    },
+    {
+      "name": "Cloud",
+      "label": "Cloud Native"
     }
   ],
   "template_input_params": [
@@ -23,6 +31,7 @@
       "label": "CAM host name or IP",
       "required": true,
       "secured": false,
+      "group_name": "CAM",
       "default": "${cam_connection.cam_hostname}"
     },
 
@@ -33,6 +42,7 @@
       "label": "CAM username",
       "required": true,
       "secured": false,
+      "group_name": "CAM",
       "default": "${cam_connection.cam_username}"
     },
     {
@@ -42,6 +52,7 @@
       "label": "CAM password",
       "required": true,
       "secured": true,
+      "group_name": "CAM",
       "default": "${cam_connection.cam_password}"
     },
     {
@@ -52,6 +63,7 @@
       "required": true,
       "secured": false,
       "immutable": false,
+      "group_name": "Import",
       "default": "${cam_import.cam_cloudconnection_id}"
     },
     {
@@ -61,6 +73,7 @@
       "label": "CAM Import Template ID",
       "required": true,
       "secured": false,
+      "group_name": "Import",
       "default": "${cam_import.cam_template_id}"
     },
     {
@@ -69,6 +82,7 @@
       "description": "Name of the CAM instance that will be created after the import",
       "label": "CAM Instance Name",
       "required": true,
+      "group_name": "Cloud",
       "secured": false
     },
     {
@@ -78,6 +92,7 @@
       "label": "CAM namespace",
       "required": true,
       "secured": false,
+      "group_name": "Cloud",
       "default": "default"
     },
     {
@@ -86,6 +101,7 @@
       "description": "Cloud native ID of the instance to be imprted. e.g. 338aefb7-6987-4c43-88d5-09351b549b7f",
       "label": "Cloud Native Instance ID",
       "required": true,
+      "group_name": "Cloud",
       "secured": false
     }
   ],
