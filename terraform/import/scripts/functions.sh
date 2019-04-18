@@ -18,7 +18,7 @@ function get_cam_tenant() {
     PARAM_AUTH_USER=${2}
     PARAM_AUTH_PASSWORD=${3}
 
-    get_cam_bearer_token ${PARAM_CAM_IP} ${PARAM_AUTH_USER} ${PARAM_AUTH_USER}
+    get_cam_bearer_token ${PARAM_CAM_IP} ${PARAM_AUTH_USER} ${PARAM_AUTH_PASSWORD}
     CAM_TENANT_ID=`curl -k -X GET \
     https://$PARAM_CAM_IP:30000/cam/tenant/api/v1/tenants/getTenantOnPrem \
     -H 'Content-Type: application/json' \
@@ -35,8 +35,7 @@ function run_cam_import() {
     PARAM_TEMPLATE_NAME=${7}
     PARAM_ID_FROM_PROVIDER=${8}
 
-
-    get_cam_tenant ${PARAM_CAM_IP} ${PARAM_AUTH_USER} ${PARAM_AUTH_USER}
+    get_cam_tenant ${PARAM_CAM_IP} ${PARAM_AUTH_USER} ${PARAM_AUTH_PASSWORD}
     #printf "\033[33m [Running the import VM command]\n\033[0m\n\033[0m\n"
     
     # call the import REST API
