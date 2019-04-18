@@ -89,4 +89,5 @@ function run_cam_import() {
   fi
 }
 run_cam_import
+clear
 jq -n --arg ipv4 "$IMPORTED_VM_IPV4" '{"ipv4":$ipv4}'
