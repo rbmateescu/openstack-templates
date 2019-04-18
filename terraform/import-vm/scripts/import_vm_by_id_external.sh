@@ -71,7 +71,7 @@ function run_cam_import() {
       exit_code=0
       break
     else
-      echo "Sleeping 5 sec while waiting for the import to finish ...";
+      echo "Sleeping 5 sec while waiting for the import to finish ..." > /dev/null
       sleep 5
     fi
     attempts=$[$attempts+1]
