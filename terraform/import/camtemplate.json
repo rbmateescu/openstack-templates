@@ -1,6 +1,6 @@
 {
-   "name": "CAM Import Single VM",
-   "description": "Template which will import a single virtual machine into Cloud Automation Manager",
+   "name": "CAM Import",
+   "description": "Template which will import external cloud resources into Cloud Automation Manager",
    "version": "1.0",
    "imageUrl": "./assets/svg/IBM_WebSphere_Standalone.svg",
    "image": "tp_WAS_standalone.png",
@@ -18,14 +18,14 @@
      "template_source": {
      "githubRepoUrl": "",
      "githubAccessToken": "",
-     "relativePathToTemplateFolder": "terraform/import-vm",
+     "relativePathToTemplateFolder": "terraform/import",
      "templateFileName": "main.tf"
       }
    },
    "metadata": {
      "displayName": "Import VM into CAM",
      "providerDisplayName": "OpenStack",
-     "longDescription": "Template which will import a single virtual machine into Cloud Automation Manager",
+     "longDescription": "Template which will import external cloud resources into Cloud Automation Manager by running CAM REST APIs",
      "bullets": [
       {
         "title": "Template version",

@@ -11,35 +11,10 @@ PARAM_CC_NAME=\(.cloud_connection_id)
 PARAM_TEMPLATE_NAME=\(.template_id) 
 PARAM_ID_FROM_PROVIDER=\(.id_from_provider)"')"
 
-
-CAM_TOKEN=""
-IMPORTED_VM_IPV4="0.0.0.0"
-function get_cam_bearer_token() {
-  #printf "\033[33m [Retrieving bearer token for user $PARAM_AUTH_USER]\n\033[0m\n"
-CAM_TOKEN=`curl -k -X POST \
-  https://$PARAM_CAM_IP:8443/idprovider/v1/auth/identitytoken \
-  -H 'Content-Type: application/json' \
-  -d '{
-"grant_type":"password",
-"username":"'$PARAM_AUTH_USER'",
-"password":"'$PARAM_AUTH_PASSWORD'",
-"scope":"openid"
-}' | jq --raw-output '.access_token'`
-}
-
-function get_cam_tenant() {
-get_cam_bearer_token
-#printf "\033[33m [Retrieving the CAM tenant ID]\n\033[0m\n"
-CAM_TENANT_ID=`curl -k -X GET \
-  https://$PARAM_CAM_IP:30000/cam/tenant/api/v1/tenants/getTenantOnPrem \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: bearer '$CAM_TOKEN | jq --raw-output '.id'`
-#printf "\033[33m [CAM tenant ID : $CAM_TENANT_ID]\n\033[0m\n"  
-}
-
+source ./functions.sh
 
 function run_cam_import() {
-   get_cam_tenant
+   get_cam_tenant ${PARAM_CAM_IP} ${PARAM_AUTH_USER} ${PARAM_AUTH_USER}
    #printf "\033[33m [Running the import VM command]\n\033[0m\n\033[0m\n"
   
   # call the import REST API
@@ -71,7 +46,7 @@ function run_cam_import() {
       exit_code=0
       break
     else
-      echo "Sleeping 5 sec while waiting for the import to finish ..." > /dev/null 2>&1
+      #echo "Sleeping 5 sec while waiting for the import to finish ..." > /dev/null 2>&1
       sleep 5
     fi
     attempts=$[$attempts+1]
